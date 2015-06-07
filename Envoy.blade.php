@@ -4,6 +4,7 @@
 	cd /home/forge/default
     php artisan down
 	git reset --hard HEAD
+    git checkout production
 	git pull origin production
 	rm -rf vendor
 	composer install
@@ -16,7 +17,8 @@
 @task('dev_deploy', ['on' => 'dev'])
 	cd /home/forge/dev
 	git reset --hard HEAD
-	git pull origin production
+	git checkout dev
+	git pull origin dev
 	rm -rf vendor
 	composer install
 	composer dump-autoload
