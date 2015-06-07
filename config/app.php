@@ -137,6 +137,7 @@ return [
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
         'Laravel\Cashier\CashierServiceProvider',
+        'AlfredNutileInc\EnvDeployer\EnvDeployerServiceProvider',
 
         /*
          * Application Service Providers...

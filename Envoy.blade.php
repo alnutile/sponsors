@@ -1,6 +1,11 @@
-@servers(['web' => 'production'])
+@servers(['production' => 'forge@104.131.182.125'])
 
-@task('deploy')
-	cd /path/to/site
-	git pull origin master
+@task('prod_deploy')
+	cd /home/forge/default
+	git reset --hard HEAD
+	git pull origin production
+	rm -rf vendor
+	composer install
+	composer dump-autoload
+	php artisan migrate --force
 @endtask
