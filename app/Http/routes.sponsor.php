@@ -51,8 +51,6 @@ Route::group(['prefix' => 'sponsor'], function() {
         return view('stripe.subscribe', compact('public_key'));
     });
 
-
-
     Route::post('1show', function() {
         $input = Input::all();
 
