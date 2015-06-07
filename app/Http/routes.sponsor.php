@@ -11,32 +11,35 @@ use Illuminate\Support\Str;
  * Will move to Controller later just
  * going quick here
  */
-function registerUser($input, $level)
+if(!function_exists('registerUser'))
 {
-    if($user = User::where("email", $input['stripeEmail'])->first())
+    function registerUser($input, $level)
     {
-        if($user->subscribed())
+        if($user = User::where("email", $input['stripeEmail'])->first())
         {
-            $user->subscription($level)->swap();
+            if($user->subscribed())
+            {
+                $user->subscription($level)->swap();
+            }
+            else
+            {
+                $user->subscription($level)->create($input['stripeToken']);
+            }
         }
         else
         {
+            $user = User::create(
+                [
+                    'email' => $input['stripeEmail'],
+                    'password' => Hash::make(Str::random())
+                ]
+            );
+
             $user->subscription($level)->create($input['stripeToken']);
         }
-    }
-    else
-    {
-        $user = User::create(
-            [
-                'email' => $input['stripeEmail'],
-                'password' => Hash::make(Str::random())
-            ]
-        );
 
-        $user->subscription($level)->create($input['stripeToken']);
+        return $user;
     }
-
-    return $user;
 }
 
 
