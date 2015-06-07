@@ -7,6 +7,7 @@
 	rm -rf vendor
 	composer install
 	composer dump-autoload
+    php artisan view:clear
 	php artisan migrate --force
 @endtask
 
