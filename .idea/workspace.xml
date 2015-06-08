@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Invoice.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vendor/laravel/cashier/src/Laravel/Cashier/Invoice.php">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41509435" vertical-offset="6446" max-vertical-offset="9900">
-              <caret line="313" column="5" selection-start-line="313" selection-start-column="5" selection-end-line="313" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.40794703" vertical-offset="0" max-vertical-offset="755">
+              <caret line="14" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -2417,14 +2417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40794703" vertical-offset="0" max-vertical-offset="755">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/password.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="755">
@@ -3816,6 +3808,97 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41509435" vertical-offset="6446" max-vertical-offset="9900">
           <caret line="313" column="5" selection-start-line="313" selection-start-column="5" selection-end-line="313" selection-end-column="5" />
+          <folding>
+            <marker date="1433643678000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" The billable instance. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" The Stripe invoice instance. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" The filesystem instance. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Create a new invoice instance. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the total amount for the line item in dollars. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the total amount for the line item in the currency symbol of your choice ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the total of the invoice (after discounts). ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the total of the invoice (before discounts). ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get all of the &quot;invoice item&quot; line items. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get all of the &quot;subscription&quot; line items. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get all of the line items by a given type. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Determine if the invoice has a discount. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the discount amount in dollars. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the discount amount with the currency symbol. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the discount amount. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the coupon code applied to the invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Determine if the discount is a percentage. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the discount percentage for the invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the discount amount for the invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get a Carbon date for the invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get a human readable date for the invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get an SplFileInfo instance for the invoice with the given data. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the View instance for the invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the rendered HTML content of the invoice view. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Create an invoice download response. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Write the raw PDF bytes for the invoice via PhantomJS. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Write the view HTML so PhantomJS can access it. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the PhantomJS process instance. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the filename for the invoice download. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Set the filesystem instance. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the Stripe invoice object. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the operating system for the current platform. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Get the binary extension for the system. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Dynamically get values from the Stripe invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder=" Dynamically set values on the Stripe invoice. ..." />
+            <marker date="1433643678000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40794703" vertical-offset="0" max-vertical-offset="755">
+          <caret line="14" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="48" />
           <folding />
         </state>
       </provider>
