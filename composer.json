@@ -6,7 +6,10 @@
     "type": "project",
     "require": {
         "laravel/framework": "5.1.*",
-        "laravel/cashier": "~5.0"
+        "laravel/cashier": "~5.0",
+        "symfony/process": "~2.1",
+        "alfred-nutile-inc/env-deployer": "dev-master",
+        "doctrine/dbal": "^2.6@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -30,7 +33,9 @@
     "scripts": {
         "post-install-cmd": [
             "php artisan clear-compiled",
-            "php artisan optimize"
+            "php artisan optimize",
+            "php -r \"exec('chmod -R +x vendor/laravel/cashier/src/Laravel/Cashier/bin');\"",
+            "php -r \"exec('touch storage/database.sqlite');\""
         ],
         "post-update-cmd": [
             "php artisan clear-compiled",

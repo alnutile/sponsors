@@ -119,7 +119,7 @@
                               src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                               data-key="{{ $public_key }}"
                               data-amount="100"
-                              data-name="Fam"
+                              data-name="Fan"
                               data-description="Fan ($1.00)"
                               data-image="/128x128.png">
                       </script>

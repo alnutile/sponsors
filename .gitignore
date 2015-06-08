@@ -1,4 +1,5 @@
-.idea/*
+.idea
 /vendor
 /node_modules
 .env
+database.sqlite

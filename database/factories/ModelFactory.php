@@ -17,5 +17,8 @@ $factory->define('App\User', function ($faker) {
         'email' => $faker->email,
         'password' => str_random(10),
         'remember_token' => str_random(10),
+        'stripe_id' => 'cus_foo',
+        'stripe_plan' => 'FAN',
+        'stripe_subscription'  => 'sub_foo'
     ];
 });
