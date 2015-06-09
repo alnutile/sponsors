@@ -15,33 +15,17 @@ use Illuminate\Support\Str;
 
 class SubscribeController extends Controller
 {
-
-    public function registerUser($input, $level)
+    public function registerUser($input, $level, $charge = false)
     {
-        if($user = User::where("email", $input['stripeEmail'])->first())
+        if($user = $this->existingUser($input, $level, $charge))
         {
-            if($user->subscribed())
-            {
-                $user->subscription($level)->swap();
-            }
-            else
-            {
-                $user->subscription($level)->create($input['stripeToken']);
-            }
+            return $user;
         }
         else
         {
-            $user = User::create(
-                [
-                    'email' => $input['stripeEmail'],
-                    'password' => Hash::make(Str::random())
-                ]
-            );
-
-            $user->subscription($level)->create($input['stripeToken']);
+            $user = $this->createNewCustomer($input, $level, $charge);
+            return $user;
         }
-
-        return $user;
     }
 
     public function getSponsorPage()
@@ -92,5 +76,86 @@ class SubscribeController extends Controller
         return Redirect::to('profile')->with("message", "Thanks!");
     }
 
+    public function postQuantity()
+    {
+        $input = Input::all();
+
+        if(empty($input['stripeToken']))
+            return Redirect::back();
+
+        $user = $this->registerUser($input, Plans::$QUANTITY, false);
+
+        $qty = 4; //really this would come in from input
+        foreach(range(1, $qty) as $index)
+        {
+            $user->charge(22500, [
+                'customer' => $user->stripe_id,
+                'receipt_email' => $user->email,
+            ]);
+        }
+
+        Auth::login($user);
+
+        return Redirect::to('profile')->with("message", "Thanks!");
+    }
+
+    private function chargeOrSubscribe($user, $charge, $level, $input)
+    {
+        if($charge)
+        {
+            $user->charge($level);
+
+        } else {
+            $user->subscription($level)->create($input['stripeToken']);
+        }
+
+        return $user;
+    }
+
+    private function chargeOrSwap($user, $charge, $level)
+    {
+        if($charge)
+        {
+            $user->charge($level);
+        } else {
+            $user->subscription($level)->swap();
+        }
+
+        return $user;
+    }
+
+    private function existingUser($input, $level, $charge)
+    {
+        if($user = User::where("email", $input['stripeEmail'])->first())
+        {
+            if($user->subscribed())
+            {
+                $user = $this->chargeOrSwap($user, $charge, $level);
+            }
+            else
+            {
+                $user = $this->chargeOrSubscribe($user, $charge, $level, $input);
+            }
+
+            return $user;
+        }
+        return false;
+    }
+
+    private function createNewCustomer($input, $level, $charge)
+    {
+        $user = User::create(
+            [
+                'email' => $input['stripeEmail'],
+                'password' => Hash::make(Str::random())
+            ]
+        );
+
+
+        $user = $this->chargeOrSubscribe($user, $charge, $level, $input);
+
+        return $user;
+
+    }
 
 }
