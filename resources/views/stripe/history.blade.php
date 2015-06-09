@@ -22,6 +22,10 @@
                         </tr>
                     @endforeach
                 </table>
+
+                <pre>
+                    <?php var_dump($onetime_purchase); ?>
+                </pre>
             </div>
         </div>
     </div>

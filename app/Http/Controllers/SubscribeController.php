@@ -76,29 +76,6 @@ class SubscribeController extends Controller
         return Redirect::to('profile')->with("message", "Thanks!");
     }
 
-    public function postQuantity()
-    {
-        $input = Input::all();
-
-        if(empty($input['stripeToken']))
-            return Redirect::back();
-
-        $user = $this->registerUser($input, Plans::$QUANTITY, false);
-
-        $qty = 4; //really this would come in from input
-        foreach(range(1, $qty) as $index)
-        {
-            $user->charge(22500, [
-                'customer' => $user->stripe_id,
-                'receipt_email' => $user->email,
-            ]);
-        }
-
-        Auth::login($user);
-
-        return Redirect::to('profile')->with("message", "Thanks!");
-    }
-
     private function chargeOrSubscribe($user, $charge, $level, $input)
     {
         if($charge)

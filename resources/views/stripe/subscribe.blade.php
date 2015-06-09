@@ -30,11 +30,15 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active">
-            <a href="#monthly" aria-controls="monthly" role="tab" data-toggle="tab">Monthly Subscriptions</a>
+            <a href="#monthly"
+               aria-controls="monthly"
+               role="tab" data-toggle="tab">Monthly Subscriptions</a>
           </li>
           <li role="presentation">
-            <a href="#quantity" aria-controls="profile" role="tab" data-toggle="tab">
-              Buy in Bulk
+            <a href="#quantity"
+               aria-controls="profile"
+               role="tab" data-toggle="tab">
+              Non Subscription Purchase
             </a></li>
         </ul>
 

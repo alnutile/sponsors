@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+use Stripe\Customer;
 
 class ProfileController extends Controller
 {
@@ -25,7 +26,24 @@ class ProfileController extends Controller
     {
         $user = $this->auth->user();
         $invoices = $user->invoices();
-        return view('profile.user', compact('user', 'invoices'));
+        $onetime_purchase = [];
+        /**
+         * Get other Purchases put logic in model
+         */
+        $stripe = array(
+            'secret_key'      => env('STRIPE_API_SECRET'),
+            'publishable_key' => env('STRIPE_PUBLIC')
+        );
+
+        \Stripe\Stripe::setApiKey($stripe['secret_key']);
+
+        if($user->stripe_id)
+        {
+            $customer = new Customer();
+            $onetime_purchase  = $customer->retrieve($user->stripe_id)->invoices();
+        }
+
+        return view('profile.user', compact('user', 'invoices', 'onetime_purchase'));
     }
 
     public function postEdit()

@@ -5,7 +5,7 @@
             <div class="plan">
 
                 <div class="head">
-                    <h2>Buy in Bulk</h2>
+                    <h2>Non Subscription Purchase</h2>
 
                 </div>
 
@@ -22,7 +22,8 @@
 
                 <form action="/sponsor/quantity" method="POST">
                     <script
-                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            src="https://checkout.stripe.com/checkout.js"
+                            class="stripe-button"
                             data-key="{{ $public_key }}"
                             data-amount="22500"
                             data-name="Buying in Quantity"
