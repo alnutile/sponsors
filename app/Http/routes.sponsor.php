@@ -17,4 +17,8 @@ Route::group(['prefix' => 'sponsor'], function() {
     Route::post('2show', 'SubscribeController@post2Show');
 
     Route::post('fan', 'SubscribeController@postFan');
+
+
 });
+
+Route::post('stripe/webhook', 'WebhookController@handleWebhook');
