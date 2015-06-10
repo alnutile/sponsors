@@ -115,11 +115,15 @@ class ProfileController extends Controller
         foreach($onetime_purchase->data as $key => $value)
         {
             $value = $value->__toArray();
-            $value['created']   = Carbon::createFromTimestamp($value['created']);
-            $value['amount']    = money_format('$%i', $value['amount'] / 100);
-            $value['status']    = ucfirst($value['status']);
 
-            $transformed[] = $value;
+            if($value['description'] == 'Non Subscription DevelopersHangout Sponsor Slot')
+            {
+                $value['created']   = Carbon::createFromTimestamp($value['created']);
+                $value['amount']    = money_format('$%i', $value['amount'] / 100);
+                $value['status']    = ucfirst($value['status']);
+
+                $transformed[] = $value;
+            }
         }
 
         return $transformed;
