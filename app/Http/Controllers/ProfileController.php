@@ -4,9 +4,11 @@
 namespace App\Http\Controllers;
 
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+use Stripe\Customer;
 
 class ProfileController extends Controller
 {
@@ -25,7 +27,23 @@ class ProfileController extends Controller
     {
         $user = $this->auth->user();
         $invoices = $user->invoices();
-        return view('profile.user', compact('user', 'invoices'));
+        $onetime_purchase = [];
+        /**
+         * Get other Purchases put logic in model
+         */
+        $stripe = array(
+            'secret_key'      => env('STRIPE_API_SECRET'),
+            'publishable_key' => env('STRIPE_PUBLIC')
+        );
+
+        \Stripe\Stripe::setApiKey($stripe['secret_key']);
+
+        if($user->stripe_id)
+        {
+            $onetime_purchase = $this->loadCustomerOneTimePurchases($user);
+        }
+
+        return view('profile.user', compact('user', 'invoices', 'onetime_purchase'));
     }
 
     public function postEdit()
@@ -89,5 +107,30 @@ class ProfileController extends Controller
 
         return redirect('profile')
             ->withMessage("Sorry to see you go :(");
+    }
+
+    private function transform($onetime_purchase)
+    {
+        $transformed = [];
+        foreach($onetime_purchase->data as $key => $value)
+        {
+            $value = $value->__toArray();
+            $value['created']   = Carbon::createFromTimestamp($value['created']);
+            $value['amount']    = money_format('$%i', $value['amount'] / 100);
+            $value['status']    = ucfirst($value['status']);
+
+            $transformed[] = $value;
+        }
+
+        return $transformed;
+    }
+
+    public function loadCustomerOneTimePurchases($user)
+    {
+        $customer = new Customer();
+        $onetime_purchase  = $customer->retrieve($user->stripe_id)->charges();
+        $onetime_purchase  = $this->transform($onetime_purchase);
+
+        return $onetime_purchase;
     }
 }

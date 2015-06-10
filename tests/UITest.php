@@ -44,7 +44,9 @@ class UITest extends TestCase
         );
 
         $mock = m::mock('Illuminate\Contracts\Auth\Guard');
-        $mock->shouldReceive('user')->andReturnSelf()->set('email', $user->email);
+        $mock->shouldReceive('user')->andReturnSelf()
+            ->set('email', $user->email)
+            ->set('stripe_id', $user->stripe_id);
         $mock->shouldReceive('guest')->andReturn(false);
         $mock->shouldReceive('check')->andReturnSelf();
         $mock->shouldReceive('invoices')->andReturn([]);
@@ -55,6 +57,11 @@ class UITest extends TestCase
             \Carbon\Carbon::now()->addDay(10));
 
         App::instance('Illuminate\Contracts\Auth\Guard', $mock);
+        $controller = m::mock('App\Http\Controllers\ProfileController',  [$mock]);
+        $controller->makePartial();
+        $controller->shouldReceive('loadCustomerOneTimePurchases')->andReturn([]);
+
+        App::instance('App\Http\Controllers\ProfileController', $controller);
 
         $this->visit('/profile')
             ->see("Details")

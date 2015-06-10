@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 
 
 Route::group(['prefix' => 'sponsor'], function() {
-
     Route::get('/', 'SubscribeController@getSponsorPage');
 
     Route::post('1show', 'SubscribeController@post1Show');
@@ -17,4 +16,8 @@ Route::group(['prefix' => 'sponsor'], function() {
     Route::post('2show', 'SubscribeController@post2Show');
 
     Route::post('fan', 'SubscribeController@postFan');
+
+    Route::post('quantity', 'StripeQuantifyBuyController@postQuantity');
 });
+
+Route::post('stripe/webhook', 'WebhookController@handleWebhook');

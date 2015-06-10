@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://sponsors.dev:44300",
+
+  "selenium": {
+    "browser": "chrome"
+  }
+}
