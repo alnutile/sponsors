@@ -13,4 +13,5 @@ class Plans {
     public static $ONE_SHOW_A_MONTH = '1SHOW';
     public static $TWO_SHOWS_A_MONTH = '2SHOWS';
     public static $FAN = 'FAN';
+    public static $QUANTITY = 'QUANTITY';
 }
