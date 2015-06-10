@@ -40,9 +40,7 @@ class ProfileController extends Controller
 
         if($user->stripe_id)
         {
-            $customer = new Customer();
-            $onetime_purchase  = $customer->retrieve($user->stripe_id)->charges();
-            $onetime_purchase  = $this->transform($onetime_purchase);
+            $onetime_purchase = $this->loadCustomerOneTimePurchases($user);
         }
 
         return view('profile.user', compact('user', 'invoices', 'onetime_purchase'));
@@ -125,5 +123,14 @@ class ProfileController extends Controller
         }
 
         return $transformed;
+    }
+
+    public function loadCustomerOneTimePurchases($user)
+    {
+        $customer = new Customer();
+        $onetime_purchase  = $customer->retrieve($user->stripe_id)->charges();
+        $onetime_purchase  = $this->transform($onetime_purchase);
+
+        return $onetime_purchase;
     }
 }
