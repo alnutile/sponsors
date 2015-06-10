@@ -25,7 +25,6 @@ class StripeQuantifyBuyController extends Controller
 
         if($user->stripe_id)
         {
-            dd("HERE 28");
             $this->chargeUser($user->stripe_id);
         }
         else

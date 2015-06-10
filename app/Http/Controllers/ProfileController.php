@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
@@ -40,7 +41,8 @@ class ProfileController extends Controller
         if($user->stripe_id)
         {
             $customer = new Customer();
-            $onetime_purchase  = $customer->retrieve($user->stripe_id)->invoices();
+            $onetime_purchase  = $customer->retrieve($user->stripe_id)->charges();
+            $onetime_purchase  = $this->transform($onetime_purchase);
         }
 
         return view('profile.user', compact('user', 'invoices', 'onetime_purchase'));
@@ -107,5 +109,21 @@ class ProfileController extends Controller
 
         return redirect('profile')
             ->withMessage("Sorry to see you go :(");
+    }
+
+    private function transform($onetime_purchase)
+    {
+        $transformed = [];
+        foreach($onetime_purchase->data as $key => $value)
+        {
+            $value = $value->__toArray();
+            $value['created']   = Carbon::createFromTimestamp($value['created']);
+            $value['amount']    = money_format('$%i', $value['amount'] / 100);
+            $value['status']    = ucfirst($value['status']);
+
+            $transformed[] = $value;
+        }
+
+        return $transformed;
     }
 }

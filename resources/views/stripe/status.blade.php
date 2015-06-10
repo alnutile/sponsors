@@ -25,8 +25,6 @@
             </div>
         </div>
     </div>
-@else
-    <a href="/sponsor">Take a moment to re-subscribe?</a>
 @endif
 
 
