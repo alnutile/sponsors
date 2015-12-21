@@ -12,12 +12,12 @@
                 <ul class="item-list">
                     <li>2 min segment</li>
                     <li>We talk from experience</li>
-                    <li>Happens at the start of the show</li>
+                    <li>Happens at the start of the show or before Deep Dive of Show</li>
                 </ul>
 
                 <div class="price">
                     <h3><span class="symbol">$</span>225</h3>
-                    <h4>per month</h4>
+                    <h4>per show</h4>
                 </div>
 
                 <form action="/sponsor/quantity" method="POST">
